@@ -9,7 +9,7 @@ const Navbar = () => {
         href={`/`}
         className={styles.logo}
       >
-        Logo
+        NFT-Marketplace
       </Link>
       <Links />
     </nav>
