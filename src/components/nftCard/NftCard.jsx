@@ -17,7 +17,7 @@ const NftCard = () => {
         </div>
       </div>
       <div className={styles.bottom}>
-        <h1>Title</h1>
+        <h2>Title</h2>
         <p>Description</p>
 
         <div>
@@ -25,7 +25,12 @@ const NftCard = () => {
           <p>Price:</p>
         </div>
 
-        <Link href={`/nft/`}>Buy NFT</Link>
+        <Link
+          href={`/nft/`}
+          className={styles.buyBtn}
+        >
+          Purchase
+        </Link>
       </div>
     </div>
   );
