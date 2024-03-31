@@ -12,11 +12,12 @@ const getData = async () => {
 
 const Nft = async () => {
   const posts = await getData();
+
   return (
     <div className={styles.container}>
       {posts.map((post) => (
         <NftCard
-          key={post.userId}
+          key={post.id}
           post={post}
         />
       ))}

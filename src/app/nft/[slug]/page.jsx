@@ -1,7 +1,21 @@
 import Image from 'next/image';
+import NftUser from '@/components/nftUser/NftUser';
 import styles from './singleNft.module.css';
 
-const SingleNft = () => {
+const getData = async (slug) => {
+  const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${slug}`);
+  if (!res) {
+    throw new Error('Something went wrong');
+  }
+
+  return res.json();
+};
+
+const SingleNft = async ({ params }) => {
+  const { slug } = params;
+
+  const post = await getData(slug);
+
   return (
     <div className={styles.container}>
       <div className={styles.imageContainer}>
@@ -13,7 +27,7 @@ const SingleNft = () => {
         />
       </div>
       <div className={styles.textContainer}>
-        <h2 className={styles.title}>Title</h2>
+        <h2 className={styles.title}>{post.title}</h2>
 
         <div className={styles.details}>
           <Image
@@ -24,10 +38,7 @@ const SingleNft = () => {
             className={styles.avatar}
           />
 
-          <div className={styles.detailText}>
-            <span className={styles.detailTitle}>Owner</span>
-            <span className={styles.detailValue}>Terry Jefferson</span>
-          </div>
+          <NftUser userId={post.userId} />
 
           <div className={styles.detailText}>
             <span className={styles.detailTitle}>Published</span>
@@ -45,10 +56,7 @@ const SingleNft = () => {
           </div>
         </div>
 
-        <div className={styles.content}>
-          lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero
-          blanditiis adipisci minima reiciendis a autem assumenda dolore.
-        </div>
+        <div className={styles.content}>{post.body}</div>
       </div>
     </div>
   );
