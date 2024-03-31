@@ -2,7 +2,7 @@ import Image from 'next/image';
 import styles from './nftCard.module.css';
 import Link from 'next/link';
 
-const NftCard = () => {
+const NftCard = async ({ post }) => {
   return (
     <div className={styles.container}>
       <div className={styles.top}>
@@ -17,8 +17,8 @@ const NftCard = () => {
         </div>
       </div>
       <div className={styles.bottom}>
-        <h2>Title</h2>
-        <p>Description</p>
+        <h2>{post?.title}</h2>
+        <p>{post?.body}</p>
 
         <div>
           <p>Category:</p>
@@ -26,7 +26,7 @@ const NftCard = () => {
         </div>
 
         <Link
-          href={`/nft/`}
+          href={`/nft/${post.id}`}
           className={styles.buyBtn}
         >
           Purchase
