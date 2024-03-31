@@ -55,3 +55,32 @@
 .heroImage {
   position: relative;
 }
+
+@media (max-width: 1024px) {
+  .container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .boxes {
+    flex-direction: column;
+    gap: 50px;
+  }
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 54px;
+  }
+
+  .brands {
+    height: 35px;
+    width: 100%;
+  }
+
+  .buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+}
