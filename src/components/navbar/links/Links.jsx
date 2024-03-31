@@ -38,7 +38,7 @@ const authenticatedUser = [
 const Links = () => {
   const [open, setOpen] = useState(false);
 
-  const session = true;
+  const session = false;
   const isAdmin = true;
 
   return (
@@ -68,7 +68,7 @@ const Links = () => {
             </button>
           </>
         ) : (
-          <NavLink item={{ title: 'Sign in', path: '/signin' }} />
+          <NavLink item={{ title: 'Sign in', path: '/auth/signin' }} />
         )}
       </div>
 
