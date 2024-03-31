@@ -12,13 +12,25 @@ const links = [
     title: 'About',
     path: '/about',
   },
-  {
-    title: 'Blog',
-    path: '/blog',
-  },
+
   {
     title: 'Contact',
     path: '/contact',
+  },
+];
+
+const authenticatedUser = [
+  {
+    title: 'Wallet',
+    path: '/wallet',
+  },
+  {
+    title: 'Profile',
+    path: '/profile',
+  },
+  {
+    title: 'NFT',
+    path: '/nft',
   },
 ];
 
@@ -40,6 +52,12 @@ const Links = () => {
 
         {session ? (
           <>
+            {authenticatedUser.map((link) => (
+              <NavLink
+                item={link}
+                key={link.title}
+              />
+            ))}
             {isAdmin && <NavLink item={{ title: 'Admin', path: '/admin' }} />}
             <button
               type='button'

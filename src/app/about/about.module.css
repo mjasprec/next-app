@@ -17,6 +17,10 @@
   height: 500px;
 }
 
+.img {
+  object-fit: contain;
+}
+
 .title {
   font-size: 54px;
 }
